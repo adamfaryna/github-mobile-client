@@ -4,7 +4,7 @@
  * Distributed under terms of the Proprietary license.
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import { Button, Image, StyleSheet, View, TextInput } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -16,13 +16,28 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginScreen = ({  }) => (
-  <View style={styles.container}>
-    <Image source={require('../public/github_logo.png')} />
-    <TextInput placeholder="your email"  />
-    <TextInput placeholder="password" secureTextEntry={true} value={t} />
-    <Button title="Sign in" />
-  </View>
-);
+class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  onPress() {
+    const { login, password, navigation } = this.props;
+    navigation.navigate('Main');
+  }
+
+  render() {
+    let login, password;
+
+    return (
+      <View style={styles.container}>
+        <Image source={require('../../public/github_logo.png')} />
+        <TextInput placeholder="your email" value={login}  />
+        <TextInput placeholder="password" secureTextEntry={true} value={password} />
+        <Button title="Sign in" onPress={this.onPress.bind(this)} />
+      </View>
+    );
+  }
+};
 
 export default LoginScreen;

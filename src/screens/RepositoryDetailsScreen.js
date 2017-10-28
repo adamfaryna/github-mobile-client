@@ -4,3 +4,19 @@
  * Distributed under terms of the Proprietary license.
  */
 
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+
+const style = StyleSheet.create({
+  container: {
+
+  }
+});
+
+const RepositoryDetailsScreen = () => (
+  <View style={style.container}>
+
+  </View>
+);
+
+export default RepositoryDetailsScreen;
